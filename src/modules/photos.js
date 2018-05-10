@@ -28,7 +28,6 @@ export default (state = initialState, action) => {
 };
 
 const receivePhotos = (json) => {
-  console.log(json.results);
   return {
     type: RECEIVE_PHOTOS,
     photos: json.results
@@ -61,7 +60,6 @@ export const fetchPhotosIfNeeded = () => {
 }
 
 function shouldFetchPhotos(state) {
-  console.log(state);
   if (!state.photos.photos.length) {
     return true
   } else if (state.isFetching) {
