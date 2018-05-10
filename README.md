@@ -1,6 +1,6 @@
 ### Reactgram
 
-A React JS instagram clone using React JS, React Router and Redux
+A Instagram clone using React JS, React Router and Redux
 
 ## Installation
 
