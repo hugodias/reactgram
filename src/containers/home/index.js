@@ -3,14 +3,7 @@ import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { fetchPhotosIfNeeded } from '../../modules/photos';
-
-const Photo = props => (
-  <div key={props.id}>
-    <div className="Header">
-      <span className="Header-name">{props.user.first_name}</span>
-    </div>
-  </div>
-);
+import Photo from './Photo';
 
 const Loading = props => {
   if (props.isFetching) {
@@ -27,7 +20,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="App">
         <h1>Home</h1>
 
         <Loading {...this.props} />
