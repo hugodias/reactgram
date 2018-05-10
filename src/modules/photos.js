@@ -1,5 +1,6 @@
 export const REQUEST_PHOTOS = 'photos/REQUEST_PHOTOS';
 export const RECEIVE_PHOTOS = 'photos/RECEIVE_PHOTOS';
+const FETCH_PHOTOS_URL      = "https://demo3018944.mockable.io/photos";
 
 const initialState = {
   photos: [],
@@ -40,7 +41,7 @@ const fetchPhotos = () => {
       type: REQUEST_PHOTOS
     });
 
-    return fetch("https://demo3018944.mockable.io/photos")
+    return fetch(FETCH_PHOTOS_URL)
     .then(response => response.json())
     .then(json => dispatch(receivePhotos(json)))
   }
