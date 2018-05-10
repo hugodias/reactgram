@@ -25,7 +25,7 @@ class Home extends React.Component {
 
         <Loading {...this.props} />
 
-        {this.props.photos.map(photo => Photo(photo))}
+        {this.props.photos.map(photo => <Photo {...photo} />)}
 
         <p>
           <button onClick={() => this.props.changePage()}>
