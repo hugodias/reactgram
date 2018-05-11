@@ -1,5 +1,5 @@
 import React from 'react';
-import './Photo.css';
+import './Photo.scss';
 
 const Photo = props => (
   <div key={props.id} className="Photo">
