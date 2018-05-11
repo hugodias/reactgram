@@ -9,12 +9,12 @@ const Photo = props => (
       <div className="Profile-photo">
         <canvas className="Profile-photo-canvas" />
         <span className="Profile-photo-container">
-          <img src={props.user.profile_image.small} alt={props.user.first_name} />
+          <img src={props.user.profile_image.small} alt={props.user.name} />
         </span>
       </div>
       <div className="Profile-name">
         <a href={props.user.links.self} target="_blank">
-          {props.user.first_name}
+          {props.user.name}
         </a>
       </div>
     </div>
@@ -26,7 +26,7 @@ const Photo = props => (
     <div className="Footer">
       <section className="Footer-actions">
         <a onClick={props.onClick} className={props.liked ? 'liked' : null}>
-          <FontAwesomeIcon icon={faHeart}/>
+          <FontAwesomeIcon icon={faHeart}/> {props.likes} 
         </a>
       </section>
     </div>

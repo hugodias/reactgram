@@ -23,9 +23,12 @@ const photo = (state, action) => {
         return state;
       }
 
+      const isLiked = state.liked ? false : true;
+
       return {
         ...state,
-        liked: !state.liked
+        liked: isLiked,
+        likes: isLiked ? state.likes + 1 : state.likes - 1
       };
     default:
       return state;

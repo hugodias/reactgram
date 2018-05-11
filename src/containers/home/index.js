@@ -21,8 +21,6 @@ class Home extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Home</h1>
-
         <Loading {...this.props} />
 
         <PhotoList photos={this.props.photos} {...this.props} onPhotoLike={ index => this.props.likePhoto(index) } />
@@ -46,7 +44,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       fetchPhotosIfNeeded,
-      likePhoto: id => likePhoto(id),
+      likePhoto,
       changePage: () => push('/about-us')
     },
     dispatch
