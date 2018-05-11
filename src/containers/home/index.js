@@ -2,8 +2,8 @@ import React from 'react';
 import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchPhotosIfNeeded } from '../../modules/photos';
-import Photo from './Photo';
+import { fetchPhotosIfNeeded, likePhoto } from '../../modules/photos';
+import PhotoList from './PhotoList';
 
 const Loading = props => {
   if (props.isFetching) {
@@ -25,7 +25,7 @@ class Home extends React.Component {
 
         <Loading {...this.props} />
 
-        {this.props.photos.map(photo => <Photo {...photo} />)}
+        <PhotoList photos={this.props.photos} {...this.props} onPhotoLike={ index => this.props.likePhoto(index) } />
 
         <p>
           <button onClick={() => this.props.changePage()}>
@@ -46,6 +46,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       fetchPhotosIfNeeded,
+      likePhoto: id => likePhoto(id),
       changePage: () => push('/about-us')
     },
     dispatch

@@ -82,7 +82,7 @@
     }
   }
 
-  .Container {
+  .Picture {
     align-items: stretch;
     border: 0 solid #000;
     box-sizing: border-box;
@@ -94,10 +94,35 @@
     padding: 0;
     position: relative;
 
-    &-photo {
+    &-Container {
       img {
         height: auto;
         width: 100%;
+      }
+    }
+  }
+
+  .Footer {
+    padding: 0 16px;
+    align-items: stretch;
+    border: 0 solid #000;
+    display: flex;
+
+    &-actions {
+      margin-top: 4px;
+
+      a {
+        color: #003569;
+        text-decoration: none;
+        display: inline-block;
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+        padding: 8px;
+
+        &.liked {
+          color: red;
+        }
       }
     }
   }
