@@ -2,6 +2,7 @@ export const REQUEST_PHOTOS = 'photos/REQUEST_PHOTOS';
 export const RECEIVE_PHOTOS = 'photos/RECEIVE_PHOTOS';
 export const REQUEST_LIKE_PHOTO = 'photos/REQUEST_LIKE_PHOTO';
 export const LIKE_PHOTO = 'photos/LIKE_PHOTO';
+export const CREATE_COMMENT = 'comments/CREATE_COMMENT';
 const FETCH_PHOTOS_URL = 'https://demo3018944.mockable.io/photos';
 
 const initialState = {
@@ -30,6 +31,16 @@ const photo = (state, action) => {
         liked: isLiked,
         likes: isLiked ? state.likes + 1 : state.likes - 1
       };
+    
+    case CREATE_COMMENT:
+      if (state.id !== action.id) {
+        return state;
+      }
+
+      return {
+        ...state,
+        comments: [...state.comments, action.comment]
+      };
     default:
       return state;
   }
@@ -51,10 +62,11 @@ export default (state = initialState, action) => {
       };
     
     case LIKE_PHOTO:
+    case CREATE_COMMENT:
       return {
         ...state,
-        photos: state.photos.map(t => 
-          photo(t, action)
+        photos: state.photos.map(p => 
+          photo(p, action)
         )
       }
 
@@ -88,6 +100,16 @@ export const likePhoto = id => {
     });
   };
 };
+
+export const commentOnPhoto = ({id, comment}) => {
+  return dispatch => {
+    dispatch({
+      type: CREATE_COMMENT,
+      id,
+      comment
+    })
+  }
+}
 
 export const fetchPhotosIfNeeded = () => {
   return (dispatch, getState) => {

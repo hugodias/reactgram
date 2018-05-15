@@ -106,10 +106,10 @@
     padding: 0 16px;
     align-items: stretch;
     border: 0 solid #000;
-    display: flex;
 
     &-actions {
       margin-top: 4px;
+      flex-direction: row;
 
       a {
         color: #003569;
@@ -124,6 +124,10 @@
           color: red;
         }
       }
+    }
+
+    &-stats {
+      display: block;
     }
   }
 }
