@@ -53,13 +53,10 @@ const Photo = props => {
                 return;
               }
 
-              const comment = {
-                author: "Foobar",
-                message: input.value,
-              }
-
-              props.onComment(props.id, comment);
-              //dispatch(commentOnPhoto(props.id, input.value));
+              props.onComment(props.id, {
+                author: 'Foobar',
+                message: input.value
+              });
               input.value = '';
             }}>
             <input ref={node => (input = node)} />

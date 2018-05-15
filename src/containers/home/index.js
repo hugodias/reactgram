@@ -2,7 +2,11 @@ import React from 'react';
 import { push } from 'react-router-redux';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { fetchPhotosIfNeeded, likePhoto, commentOnPhoto } from '../../modules/photos';
+import {
+  fetchPhotosIfNeeded,
+  likePhoto,
+  commentOnPhoto
+} from '../../modules/photos';
 import PhotoList from './PhotoList';
 
 const Loading = props => {
@@ -23,11 +27,13 @@ class Home extends React.Component {
       <div className="App">
         <Loading {...this.props} />
 
-        <PhotoList 
-          photos={this.props.photos} 
-          {...this.props} 
-          onPhotoLike={ index => this.props.likePhoto(index) }
-          onComment={ (index, comment) => this.props.commentOnPhoto(index, comment) }
+        <PhotoList
+          photos={this.props.photos}
+          {...this.props}
+          onPhotoLike={index => this.props.likePhoto(index)}
+          onComment={(index, comment) =>
+            this.props.commentOnPhoto(index, comment)
+          }
         />
         <p>
           <button onClick={() => this.props.changePage()}>

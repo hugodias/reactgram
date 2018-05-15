@@ -31,7 +31,7 @@ const photo = (state, action) => {
         liked: isLiked,
         likes: isLiked ? state.likes + 1 : state.likes - 1
       };
-    
+
     case CREATE_COMMENT:
       if (state.id !== action.id) {
         return state;
@@ -63,15 +63,13 @@ export default (state = initialState, action) => {
         photos: action.photos,
         isFetching: false
       };
-    
+
     case LIKE_PHOTO:
     case CREATE_COMMENT:
       return {
         ...state,
-        photos: state.photos.map(p => 
-          photo(p, action)
-        )
-      }
+        photos: state.photos.map(p => photo(p, action))
+      };
 
     default:
       return state;
@@ -110,9 +108,9 @@ export const commentOnPhoto = (id, comment) => {
       type: CREATE_COMMENT,
       id,
       comment
-    })
-  }
-}
+    });
+  };
+};
 
 export const fetchPhotosIfNeeded = () => {
   return (dispatch, getState) => {
