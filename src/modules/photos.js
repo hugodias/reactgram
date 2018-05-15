@@ -37,9 +37,12 @@ const photo = (state, action) => {
         return state;
       }
 
+      let comment = action.comment;
+      comment.id = Math.random().toString();
+
       return {
         ...state,
-        comments: [...state.comments, action.comment]
+        comments: [...state.comments, comment]
       };
     default:
       return state;
@@ -101,7 +104,7 @@ export const likePhoto = id => {
   };
 };
 
-export const commentOnPhoto = ({id, comment}) => {
+export const commentOnPhoto = (id, comment) => {
   return dispatch => {
     dispatch({
       type: CREATE_COMMENT,

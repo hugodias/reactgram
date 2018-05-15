@@ -26,7 +26,9 @@ class Home extends React.Component {
         <PhotoList 
           photos={this.props.photos} 
           {...this.props} 
-          onPhotoLike={ index => this.props.likePhoto(index) }/>
+          onPhotoLike={ index => this.props.likePhoto(index) }
+          onComment={ (index, comment) => this.props.commentOnPhoto(index, comment) }
+        />
         <p>
           <button onClick={() => this.props.changePage()}>
             Go to about page via redux

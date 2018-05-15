@@ -1,6 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { commentOnPhoto } from '../../modules/photos';
 import './Photo.scss';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faHeart from '@fortawesome/fontawesome-free-solid/faHeart';
@@ -54,6 +52,13 @@ const Photo = props => {
               if (!input.value.trim()) {
                 return;
               }
+
+              const comment = {
+                author: "Foobar",
+                message: input.value,
+              }
+
+              props.onComment(props.id, comment);
               //dispatch(commentOnPhoto(props.id, input.value));
               input.value = '';
             }}>

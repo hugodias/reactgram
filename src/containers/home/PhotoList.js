@@ -1,15 +1,14 @@
 import React from 'react';
 import Photo from './Photo';
-import { commentOnPhoto } from '../../modules/photos';
 
-const PhotoList = ({ photos, likePhoto }) => (
+const PhotoList = ({ photos, likePhoto, commentOnPhoto }) => (
   <div>
     {photos.map(photo => 
       <Photo 
         key={photo.id} 
         {...photo} 
         onClick={ () => likePhoto(photo.id) }
-        onComment={ () => commentOnPhoto()} 
+        onComment={commentOnPhoto} 
       />
     )}
   </div>
