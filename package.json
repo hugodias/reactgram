@@ -66,7 +66,7 @@
     "test": "node scripts/test.js --env=jsdom",
     "precommit": "lint-staged"
   },
-  "homepage": "https://github.com/hugodias/reactgram",
+  "homepage": "/",
   "lint-staged": {
     "*.{js,json,css,md}": [
       "prettier --write",
