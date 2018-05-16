@@ -6,7 +6,7 @@ const PhotoList = ({ photos, likePhoto, commentOnPhoto }) => (
     {photos.map(photo => (
       <Photo
         key={photo.id}
-        {...photo}
+        {...photo.data}
         onClick={() => likePhoto(photo.id)}
         onComment={commentOnPhoto}
       />

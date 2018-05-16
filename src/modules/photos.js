@@ -1,3 +1,4 @@
+import fire from '../fire';
 export const REQUEST_PHOTOS = 'photos/REQUEST_PHOTOS';
 export const RECEIVE_PHOTOS = 'photos/RECEIVE_PHOTOS';
 export const REQUEST_LIKE_PHOTO = 'photos/REQUEST_LIKE_PHOTO';
@@ -60,7 +61,7 @@ export default (state = initialState, action) => {
     case RECEIVE_PHOTOS:
       return {
         ...state,
-        photos: action.photos,
+        photos: [...state.photos, action.photo],
         isFetching: false
       };
 
@@ -82,14 +83,16 @@ const fetchPhotos = () => {
       type: REQUEST_PHOTOS
     });
 
-    return fetch(FETCH_PHOTOS_URL)
-      .then(response => response.json())
-      .then(json =>
-        dispatch({
-          type: RECEIVE_PHOTOS,
-          photos: json.results
-        })
-      );
+    let photosRef = fire.database().ref('results').orderByKey().limitToLast(100);
+    photosRef.on('child_added', snapshot => {
+      /* Update React state when message is added at Firebase Database */
+      let photo = { data: snapshot.val(), id: snapshot.key }
+      
+      return dispatch({
+        type: RECEIVE_PHOTOS,
+        photo: photo
+      });
+    });
   };
 };
 
