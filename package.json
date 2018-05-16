@@ -5,7 +5,11 @@
   "devDependencies": {
     "husky": "^0.14.3",
     "lint-staged": "^7.0.0",
-    "prettier": "^1.11.0"
+    "prettier": "^1.11.0",
+    "@storybook/react": "^3.4.4",
+    "@storybook/addon-actions": "^3.4.4",
+    "@storybook/addon-links": "^3.4.4",
+    "@storybook/addons": "^3.4.4"
   },
   "dependencies": {
     "@fortawesome/fontawesome": "^1.1.8",
@@ -66,7 +70,9 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "precommit": "lint-staged",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "homepage": "/",
   "lint-staged": {
