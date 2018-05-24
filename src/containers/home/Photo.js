@@ -59,7 +59,7 @@ const Photo = props => {
               });
               input.value = '';
             }}>
-            <input ref={node => (input = node)} />
+            <input type="text" placeholder="Adicione um comentário..." ref={node => (input = node)} />
             <button type="submit">Add Todo</button>
           </form>
         </div>

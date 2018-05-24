@@ -35,11 +35,7 @@ class Home extends React.Component {
             this.props.commentOnPhoto(index, comment)
           }
         />
-        <p>
-          <button onClick={() => this.props.changePage()}>
-            Go to about page via redux
-          </button>
-        </p>
+
       </div>
     );
   }
