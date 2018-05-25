@@ -2,6 +2,8 @@
 
 A Instagram clone using React JS, React Router and Redux.
 
+### [Demo](https://build-vgprixqjru.now.sh/)
+
 ![Screenshot](https://raw.githubusercontent.com/hugodias/reactgram/master/public/screenshot.png)
 
 ## Installation
