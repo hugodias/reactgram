@@ -5,9 +5,9 @@ import About from '../about';
 
 const App = () => (
   <div>
-    <header>
+    <header className="Header">
       <Link to="/">Home</Link>
-      <Link to="/about-us">About</Link>
+      <Link to="/about-us">Some other page</Link>
     </header>
 
     <main>

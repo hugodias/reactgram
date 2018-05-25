@@ -7,7 +7,7 @@ import {
   likePhoto,
   commentOnPhoto
 } from '../../modules/photos';
-import PhotoList from './PhotoList';
+import PhotoList from '../../components/PhotoList';
 
 const Loading = props => {
   if (props.isFetching) {
@@ -23,12 +23,13 @@ class Home extends React.Component {
   }
 
   render() {
+    const { isFetching } = this.props;
+    
     return (
       <div className="App">
         <Loading {...this.props} />
 
         <PhotoList
-          photos={this.props.photos}
           {...this.props}
           onPhotoLike={index => this.props.likePhoto(index)}
           onComment={(index, comment) =>

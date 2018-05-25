@@ -9,8 +9,36 @@ body {
     sans-serif;
   font-size: 1rem;
   line-height: 1.5;
+  background-color: #fafafa;
 }
 
 button:disabled {
   opacity: 0.5;
+}
+
+.App {
+  padding-top: 60px;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  margin: 0 auto;
+  max-width: 600px;
+  position: relative;
+  width: 100%;
+  padding-bottom: 80px;
+}
+
+.Header {
+  background: #FFF;
+  height: 57px;
+  border-bottom: 1px solid rgba(0,0,0,.0975);
+  a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 20px;
+    margin-top: 5px;
+    color:#003569;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+  }
 }

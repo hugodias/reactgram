@@ -3,7 +3,7 @@ import './Photo.scss';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faHeart from '@fortawesome/fontawesome-free-solid/faHeart';
 import faComment from '@fortawesome/fontawesome-free-solid/faComment';
-import Comment from './Comment';
+import Comment from '../Comment';
 
 const Photo = props => {
   let input;
